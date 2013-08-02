@@ -1,6 +1,5 @@
 define(['jquery', 'settings'],
   function($, settings) {
-
   'use strict';
 
   var body = settings.body;

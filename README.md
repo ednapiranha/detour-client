@@ -1,4 +1,4 @@
-# Detour
+# Detour (Client)
 
 An experiment with ephemeral messaging using email addresses.
 
@@ -14,20 +14,14 @@ An experiment with ephemeral messaging using email addresses.
 * Allow unread messages to die after a certain period of time
 * Encryption considerations (probably not necessary as someone who wants to encrypt can just paste the encrypted block into the message area. If they are that paranoid and want to still use the system. I mean, just use something else for now then, sheesh.)
 
-## Installing and running
+## Install node modules
 
-> brew install imagemagick
+    > npm install
 
-> git clone git://github.com/noodle/detour.git
+## Configure API url
 
-> npm install
+    > cp www/javascripts/local.js-dist www/javascripts/local.js
 
-> cp local.json-dist local.json
+## Updating nunjucks templates
 
-> mkdir tmp
-
-> node app.js
-
-## Running Tests
-
-> NODE_ENV=test make test
+    > node_modules/nunjucks/bin/precompile www/templates > www/javascripts/templates.js

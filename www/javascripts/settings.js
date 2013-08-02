@@ -1,6 +1,5 @@
 define(['jquery'],
   function ($) {
-
   'use strict';
 
   var statusTimer = function (status, callback) {
@@ -22,7 +21,6 @@ define(['jquery'],
     statusTimer: statusTimer,
     API_VERSION: '1.0',
     CHAR_MAX: 250,
-    CONTACT_KEY: 'detourContacts',
-    DEBUG: false
+    CONTACT_KEY: 'detourContacts'
   };
 });

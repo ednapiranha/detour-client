@@ -1,14 +1,6 @@
-define(['jquery', 'authenticate', 'user', 'message', 'settings', 'local_settings', 'nunjucks', 'templates'],
-  function($, authenticate, User, Message, settings, localSettings, nunjucks) {
-
+define(['jquery', 'authenticate', 'user', 'message', 'settings', 'nunjucks', 'templates'],
+  function($, authenticate, User, Message, settings, nunjucks) {
   'use strict';
-
-  var DEBUG = localSettings.DEBUG || settings.DEBUG;
-
-  if (DEBUG || !nunjucks.env) {
-    // If not precompiled, create an environment with an HTTP loader
-    nunjucks.env = new nunjucks.Environment(new nunjucks.HttpLoader('/static/templates'));
-  }
 
   var message = new Message();
   var user = new User();
@@ -34,7 +26,7 @@ define(['jquery', 'authenticate', 'user', 'message', 'settings', 'local_settings
     }
   };
 
-  if (body.data('authenticated') === 'False') {
+  if (body.data('authenticated') !== 'false') {
     body.find('#inner-wrapper').html(
       nunjucks.env.getTemplate('landing.html').render()
     );
