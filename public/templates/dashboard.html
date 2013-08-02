@@ -1,0 +1,41 @@
+<header>
+  <a href="javascript:;" data-action="new-message" id="new-message">New</a>
+  <a href="javascript:;" data-action="messages" id="messages-inbox">Messages</a>
+  <a href="javascript:;" data-action="settings-form">Settings</a>
+  <a href="javascript:;" data-action="logout">Log out</a>
+</header>
+<img id="preview-img" class="hidden" width="320">
+<div id="messages">
+  <div id="message-view">
+    <ol class="messages"></ol>
+  </div>
+
+  <div id="message-detail" class="hidden"></div>
+
+  <form method="post" id="message-form" enctype="multipart/form-data" class="hidden">
+    <span id="current-contact"></span>
+    <textarea name="message" placeholder="write your message (maximum 250 characters)"></textarea>
+    <input type="file" name="photo" id="photo-file" accept="image/*">
+    <input type="hidden" name="email">
+    <input type="hidden" name="ttl" value="10">
+    <div class="button-wrapper">
+      <span id="char-limit">250</span>
+      <button data-action="upload-photo" type="button">upload</button>
+    </div>
+    <a href="javascript:;" data-action="cancel" class="cancel">Cancel</a>
+    <button type="submit" class="right">Send</button>
+  </form>
+
+  <div id="settings" class="hidden">
+    <ol>
+      <li>
+        <a href="javascript:;" data-action="edit-contacts">Manage Contacts</a>
+      </li>
+      <li>
+        <a href="javascript:;" data-action="edit-profile">Manage Notifications</a>
+      </li>
+    </ol>
+  </div>
+  <div id="message-body"></div>
+  <div id="status" data-action="status"></div>
+</div>
