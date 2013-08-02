@@ -79,12 +79,12 @@ define(['jquery', 'authenticate', 'user', 'message', 'settings', 'nunjucks', 'te
     switch (self.data('action')) {
       case 'login-persona':
         ev.preventDefault();
-        navigator.id.request();
+        authenticate.login();
         break;
 
       case 'logout':
         ev.preventDefault();
-        navigator.id.logout();
+        authenticate.logout();
         break;
 
       case 'view':

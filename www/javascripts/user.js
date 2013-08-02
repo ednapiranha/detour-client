@@ -1,11 +1,10 @@
-define(['jquery', 'settings'],
-  function($, settings) {
-
+define(['jquery', 'settings', 'local'],
+  function($, settings, local) {
   'use strict';
 
   var body = settings.body;
 
-  var API_VERSION = settings.API_VERSION;
+  var API_URL = local.api;
   var CONTACT_KEY = settings.CONTACT_KEY;
 
   var User = function() {
@@ -19,7 +18,7 @@ define(['jquery', 'settings'],
     this.form = $('#contacts-form');
 
     $.ajax({
-      url: '/' + API_VERSION + '/contact',
+      url: API_URL + '/contact',
       data: data,
       type: 'POST',
       dataType: 'json',
@@ -49,7 +48,7 @@ define(['jquery', 'settings'],
 
   User.prototype.deleteContact = function (id) {
     $.ajax({
-      url: '/' + API_VERSION + '/contact/' + id,
+      url: API_URL + '/contact/' + id,
       type: 'DELETE',
       dataType: 'json',
       cache : false
@@ -71,7 +70,7 @@ define(['jquery', 'settings'],
 
     if (!contacts) {
       $.ajax({
-        url: '/' + API_VERSION + '/contacts',
+        url: API_URL + '/contacts',
         type: 'GET',
         dataType: 'json',
         cache: false
@@ -112,7 +111,7 @@ define(['jquery', 'settings'],
     var profileWrapper = body.find('#message-body');
 
     $.ajax({
-      url: '/' + API_VERSION + '/me',
+      url: API_URL + '/me',
       type: 'GET',
       dataType: 'json',
       cache: false
@@ -148,7 +147,7 @@ define(['jquery', 'settings'],
     }
 
     $.ajax({
-      url: '/' + API_VERSION + '/me',
+      url: API_URL + '/me',
       type: 'PUT',
       data: data,
       dataType: 'json',

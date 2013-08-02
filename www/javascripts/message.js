@@ -1,10 +1,10 @@
-define(['jquery', 'settings'],
-  function($, settings) {
+define(['jquery', 'settings', 'local'],
+  function($, settings, local) {
   'use strict';
 
   var body = settings.body;
 
-  var API_VERSION = settings.API_VERSION;
+  var API_URL = local.api;
 
   var countdownInterval;
   var countdownDisplay;
@@ -48,7 +48,7 @@ define(['jquery', 'settings'],
     var self = this;
     this.status = $('#status');
 
-    $.get('/' + API_VERSION + '/messages/unread', function (resp) {
+    $.get(API_URL + '/messages/unread', function (resp) {
       for (var i = 0; i < resp.data.length; i ++) {
         resp.data[i].created = dateDisplay(resp.data[i].created);
       }
@@ -94,7 +94,7 @@ define(['jquery', 'settings'],
     }
 
     $.ajax({
-      url: '/' + API_VERSION + '/message?ts=' + ts,
+      url: API_URL + '/message?ts=' + ts,
       data: fd,
       type: 'POST',
       processData: false,
@@ -149,7 +149,7 @@ define(['jquery', 'settings'],
     this.messageDetail = body.find('#message-detail');
 
     $.ajax({
-      url: '/' + API_VERSION + '/message/' + self.currentView.data('id'),
+      url: API_URL + '/message/' + self.currentView.data('id'),
       type: 'GET',
       dataType: 'json',
       cache: false
